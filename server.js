@@ -25,8 +25,10 @@ app.post('/api/student', (req, res) => {
     name = name.trim()
 
     const index = students.findIndex((studentName) => { // check if student name exists already
-        studentName === name
+        return studentName === name
     })
+
+    console.log(index)
 
     try { // using a "try catch" block will handle any generic 500 errors (not necessary, but a good addition)
         if (index === -1 && name !== '') {
